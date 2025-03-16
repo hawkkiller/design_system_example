@@ -29,6 +29,15 @@ class _MyAppState extends State<MyApp> {
   late final goRouter = GoRouter(routes: [buildRootRoute(MyApp.tabs)]);
 
   @override
-  Widget build(BuildContext context) =>
-      MaterialApp.router(debugShowCheckedModeBanner: false, routerConfig: goRouter);
+  Widget build(BuildContext context) => MaterialApp.router(
+    debugShowCheckedModeBanner: false,
+    routerConfig: goRouter,
+    theme: ThemeData(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.transparent,
+        brightness: Brightness.light,
+        dynamicSchemeVariant: DynamicSchemeVariant.monochrome,
+      ),
+    ),
+  );
 }
