@@ -46,7 +46,7 @@ class _StringOptionInputState extends OptionWidgetState<StringOptionInput, Strin
   Widget build(BuildContext context) {
     return TextField(
       controller: _textEditingController,
-      decoration: InputDecoration(labelText: widget.label),
+      decoration: InputDecoration(labelText: widget.label,filled: true),
       onChanged: _onTextChanged,
     );
   }

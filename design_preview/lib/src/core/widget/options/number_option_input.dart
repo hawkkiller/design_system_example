@@ -46,10 +46,9 @@ class _StringOptionInputState extends OptionWidgetState<NumberOptionInput, num> 
   Widget build(BuildContext context) {
     return TextField(
       controller: _textEditingController,
-      decoration: InputDecoration(labelText: widget.label),
+      decoration: InputDecoration(labelText: widget.label, filled: true),
       onChanged: _onTextChanged,
       keyboardType: TextInputType.number,
-      
       inputFormatters: <TextInputFormatter>[
         FilteringTextInputFormatter.allow(RegExp(r'^(\d+)?\.?\d{0,2}'))
       ],
