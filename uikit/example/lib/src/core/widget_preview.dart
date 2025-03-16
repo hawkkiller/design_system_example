@@ -16,17 +16,6 @@ class WidgetPreview extends StatelessWidget {
   final WidgetBuilder? sidebarBuilder;
   final Listenable? listenable;
 
-  static ThemeData buildThemeData(Tokens tokens) {
-    return ThemeData(
-      extensions: [tokens],
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: tokens.colors.primary,
-        brightness: Brightness.light,
-        dynamicSchemeVariant: DynamicSchemeVariant.monochrome,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return PreviewWidget(
@@ -35,12 +24,14 @@ class WidgetPreview extends StatelessWidget {
       builder: (context) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: theme ?? buildThemeData(Defaults.tokens),
-          home: Material(
-            color: context.colors.background,
-            child: Center(
-              child: builder(context),
-            ),
+          theme: theme,
+          home: Builder(
+            builder: (context) {
+              return Material(
+                color: context.colors.background,
+                child: Center(child: builder(context)),
+              );
+            },
           ),
         );
       },

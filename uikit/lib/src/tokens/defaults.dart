@@ -152,4 +152,13 @@ class Defaults {
     typography: lightTypography,
     colors: lightColors,
   );
+
+  static final darkTokens = Tokens(
+    margin: margin,
+    padding: padding,
+    gutter: gutter,
+    radius: radius,
+    typography: darkTypography,
+    colors: darkColors,
+  );
 }

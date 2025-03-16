@@ -4,3 +4,5 @@ export 'src/core/widget/not_selected_tab_screen.dart';
 export 'src/core/widget/preview_widget.dart';
 export 'src/core/widget/tabs_root.dart';
 export 'src/core/widget/tabs_tree.dart';
+export 'src/core/widget/options/string_option_input.dart';
+export 'src/core/widget/options/option.dart';

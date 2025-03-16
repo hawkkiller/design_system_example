@@ -1,6 +1,5 @@
 import 'package:design_preview/design_preview.dart';
 import 'package:design_preview_gorouter/design_preview_gorouter.dart';
-import 'package:example/src/core/widget_preview.dart';
 import 'package:example/src/tabs/buttons/destructive_button_tab.dart';
 import 'package:example/src/tabs/buttons/icon_button_tab.dart';
 import 'package:example/src/tabs/buttons/primary_button_tab.dart';
@@ -28,12 +27,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late final goRouter = GoRouter(routes: [buildRootRoute(MyApp.tabs)]);
+  late final goRouter = GoRouter(routes: [buildRootRoute(MyApp.tabs)], debugLogDiagnostics: true);
 
   @override
   Widget build(BuildContext context) => MaterialApp.router(
     debugShowCheckedModeBanner: false,
     routerConfig: goRouter,
-    theme: WidgetPreview.buildThemeData(Defaults.tokens),
+    theme: buildThemeData(Defaults.darkTokens, Brightness.dark),
   );
 }
