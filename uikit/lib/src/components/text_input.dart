@@ -1,4 +1,4 @@
-import '../tokens/tokens.dart';
+import 'package:uikit/uikit.dart';
 import 'package:flutter/material.dart';
 
 sealed class UiTextInput extends StatelessWidget {

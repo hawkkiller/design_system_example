@@ -1,5 +1,5 @@
-import '../../uikit.dart';
 import 'package:flutter/material.dart';
+import 'package:uikit/uikit.dart';
 
 class UiButtonStyle extends ButtonStyle {
   const UiButtonStyle({

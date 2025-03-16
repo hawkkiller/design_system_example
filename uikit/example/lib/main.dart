@@ -1,16 +1,17 @@
-import '../../design_preview/lib/src/core/tab.dart';
-import '../../design_preview/lib/src/core/widget/design_preview.dart';
+import 'package:design_preview/design_preview.dart';
+import 'package:design_preview_gorouter/design_preview_gorouter.dart';
 import 'package:example/src/tabs/buttons/destructive_button_tab.dart';
 import 'package:example/src/tabs/buttons/icon_button_tab.dart';
 import 'package:example/src/tabs/buttons/primary_button_tab.dart';
 import 'package:example/src/tabs/buttons/secondary_button_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 Future<void> main(List<String> args) async {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   static final tabs = [
@@ -21,5 +22,13 @@ class MyApp extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) => DesignPreview(tabs: tabs);
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late final goRouter = GoRouter(routes: [buildRootRoute(MyApp.tabs)]);
+
+  @override
+  Widget build(BuildContext context) =>
+      MaterialApp.router(debugShowCheckedModeBanner: false, routerConfig: goRouter);
 }

@@ -1,4 +1,3 @@
-import 'package:uikit/uikit.dart';
 import 'package:flutter/material.dart';
 
 class PreviewWidget extends StatelessWidget {
@@ -36,7 +35,7 @@ class _PreviewDesktop extends StatelessWidget {
           DecoratedBox(
             decoration: BoxDecoration(
               border: Border(
-                left: BorderSide(color: context.colors.foreground.withValues(alpha: .12)),
+                left: BorderSide(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: .12)),
               ),
             ),
             child: SizedBox(width: 250, height: double.infinity, child: sidebarBuilder!(context)),

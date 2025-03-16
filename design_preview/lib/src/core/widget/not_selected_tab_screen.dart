@@ -1,4 +1,3 @@
-import 'package:uikit/uikit.dart';
 import 'package:flutter/material.dart';
 
 class NotSelectedTabScreen extends StatelessWidget {
@@ -6,10 +5,11 @@ class NotSelectedTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Center(
       child: Text(
         'Not Selected',
-        style: context.typography.bodyLarge.copyWith(color: context.colors.foreground),
+        style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onSurface),
       ),
     );
   }

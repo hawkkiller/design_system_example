@@ -1,35 +1,34 @@
-import '../tab.dart';
-import 'route_handler.dart';
-import '../widget/not_selected_tab_screen.dart';
-import '../widget/tabs_root.dart';
+import 'package:design_preview/design_preview.dart';
+import 'package:design_preview_gorouter/design_preview_gorouter.dart';
 import 'package:go_router/go_router.dart';
 
 /// Builds a list of routes from a list of tabs.
 RouteBase buildRootRoute(List<PreviewTab> tabs) {
+  final handler = RouteHandlerGoRouter();
   return ShellRoute(
     routes: [
       GoRoute(
         path: '/',
         builder: (context, state) => NotSelectedTabScreen(),
-        routes: _buildRoutesForTabs(tabs),
+        routes: _buildRoutesForTabs(handler, tabs),
       ),
     ],
     builder: (context, state, child) {
-      return TabsRoot(tabs: tabs, navigator: child);
+      return TabsRoot(routeHandler: handler, tabs: tabs, navigator: child);
     },
   );
 }
 
 /// Recursively builds routes from tabs with the given path prefix.
-List<RouteBase> _buildRoutesForTabs(List<PreviewTab> tabs) {
+List<RouteBase> _buildRoutesForTabs(RouteHandler handler, List<PreviewTab> tabs) {
   final routes = <RouteBase>[];
 
   for (final tab in tabs) {
-    final path = RouteHelper.getPathFromTitle(tab.title);
+    final path = handler.encodeTitleToPath(tab.title);
 
     if (tab is FolderTab) {
       // Create nested routes for folder tabs
-      final childRoutes = _buildRoutesForTabs(tab.tabs);
+      final childRoutes = _buildRoutesForTabs(handler, tab.tabs);
       if (childRoutes.isNotEmpty) {
         routes.add(
           GoRoute(

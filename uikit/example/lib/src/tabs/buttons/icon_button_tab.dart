@@ -1,7 +1,6 @@
-import 'package:uikit/uikit.dart';
-import '../../../../../design_preview/lib/src/core/tab.dart';
-import '../../../../../design_preview/lib/src/core/widget/preview_widget.dart';
+import 'package:design_preview/design_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:uikit/uikit.dart';
 
 class IconButtonTab extends StatefulWidget with WidgetTab {
   const IconButtonTab({super.key});

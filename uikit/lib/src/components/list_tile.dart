@@ -1,5 +1,5 @@
-import '../../uikit.dart';
 import 'package:flutter/material.dart';
+import 'package:uikit/uikit.dart';
 
 sealed class UiListTile extends StatelessWidget {
   const UiListTile({super.key});

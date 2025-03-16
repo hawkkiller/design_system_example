@@ -13,6 +13,10 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  uikit: ^0.0.1
+  design_preview: ^0.0.1
+  design_preview_gorouter: ^0.0.1
+  go_router: ^14.8.1
 
 dev_dependencies:
   flutter_test:

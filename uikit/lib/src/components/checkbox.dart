@@ -1,5 +1,5 @@
-import '../../uikit.dart';
 import 'package:flutter/material.dart';
+import 'package:uikit/uikit.dart';
 
 class UiCheckbox extends StatelessWidget {
   const UiCheckbox({super.key, required this.value, this.onChanged});
