@@ -1,6 +1,6 @@
 import 'package:design_preview/src/core/router/routes.dart';
 import 'package:design_preview/src/core/tab.dart';
-import 'package:design_system/design_system.dart';
+import 'package:uikit/uikit.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

@@ -1,30 +1,32 @@
-import 'package:design_system/design_system.dart';
+import 'package:uikit/uikit.dart';
 import '../../../../../design_preview/lib/src/core/tab.dart';
 import '../../../../../design_preview/lib/src/core/widget/preview_widget.dart';
 import 'package:flutter/material.dart';
 
-class IconButtonTab extends StatefulWidget with WidgetTab {
-  const IconButtonTab({super.key});
+class PrimaryButtonTab extends StatefulWidget with WidgetTab {
+  const PrimaryButtonTab({super.key});
 
   @override
-  String get title => 'Icon';
+  String get title => 'Primary';
 
   @override
-  State<IconButtonTab> createState() => _IconButtonTabState();
+  State<PrimaryButtonTab> createState() => _PrimaryButtonTabState();
 }
 
-class _IconButtonTabState extends State<IconButtonTab> {
+class _PrimaryButtonTabState extends State<PrimaryButtonTab> {
+  final labelController = TextEditingController(text: 'Primary Button');
   final isEnabled = ValueNotifier<bool>(true);
-  late final _formListenable = Listenable.merge([isEnabled]);
+  late final _formListenable = Listenable.merge([labelController, isEnabled]);
 
   @override
   Widget build(BuildContext context) {
     return PreviewWidget(
       listenable: _formListenable,
       builder: (context) {
-        return UiButton.icon(
-          Icon(Icons.add),
+        return UiButton.primary(
+          labelController.text,
           onPressed: () {},
+          icon: Icon(Icons.add),
           enabled: isEnabled.value,
         );
       },
@@ -32,6 +34,8 @@ class _IconButtonTabState extends State<IconButtonTab> {
         return ListView(
           padding: EdgeInsets.all(context.padding.level2),
           children: [
+            UiTextInput.outlined(controller: labelController, labelText: 'Button Label'),
+            SizedBox(height: context.margin.level2),
             UiListTile.checkbox(
               title: 'Enabled',
               value: isEnabled.value,

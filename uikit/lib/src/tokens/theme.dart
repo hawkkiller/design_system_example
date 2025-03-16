@@ -1,4 +1,4 @@
-import '../../design_system.dart';
+import '../../uikit.dart';
 import 'package:flutter/material.dart';
 
 ThemeData buildThemeData(Tokens tokens) {

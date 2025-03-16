@@ -1,20 +1,20 @@
-import 'package:design_system/design_system.dart';
+import 'package:uikit/uikit.dart';
 import '../../../../../design_preview/lib/src/core/tab.dart';
 import '../../../../../design_preview/lib/src/core/widget/preview_widget.dart';
 import 'package:flutter/material.dart';
 
-class SecondaryButtonTab extends StatefulWidget with WidgetTab {
-  const SecondaryButtonTab({super.key});
+class DestructiveButtonTab extends StatefulWidget with WidgetTab {
+  const DestructiveButtonTab({super.key});
 
   @override
-  String get title => 'Secondary';
+  String get title => 'Destructive';
 
   @override
-  State<SecondaryButtonTab> createState() => _SecondaryButtonTabState();
+  State<DestructiveButtonTab> createState() => _DestructiveButtonTabState();
 }
 
-class _SecondaryButtonTabState extends State<SecondaryButtonTab> {
-  final labelController = TextEditingController(text: 'Secondary Button');
+class _DestructiveButtonTabState extends State<DestructiveButtonTab> {
+  final labelController = TextEditingController(text: 'Destructive Button');
   final isEnabled = ValueNotifier<bool>(true);
   late final _formListenable = Listenable.merge([labelController, isEnabled]);
 
@@ -23,7 +23,7 @@ class _SecondaryButtonTabState extends State<SecondaryButtonTab> {
     return PreviewWidget(
       listenable: _formListenable,
       builder: (context) {
-        return UiButton.secondary(
+        return UiButton.destructive(
           labelController.text,
           onPressed: () {},
           icon: Icon(Icons.add),

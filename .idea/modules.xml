@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/sizzle_design_system.iml" filepath="$PROJECT_DIR$/sizzle_design_system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sizzle_uikit.iml" filepath="$PROJECT_DIR$/sizzle_uikit.iml" />
     </modules>
   </component>
 </project>

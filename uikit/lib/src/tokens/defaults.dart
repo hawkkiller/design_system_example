@@ -1,4 +1,4 @@
-import '../../design_system.dart';
+import '../../uikit.dart';
 import 'color_tokens.dart';
 import 'gutter_tokens.dart';
 import 'margin_tokens.dart';

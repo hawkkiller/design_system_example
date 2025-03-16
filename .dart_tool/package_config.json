@@ -194,14 +194,14 @@
       "languageVersion": "3.7"
     },
     {
-      "name": "design_system",
-      "rootUri": "../design_system",
+      "name": "uikit",
+      "rootUri": "../uikit",
       "packageUri": "lib/",
       "languageVersion": "3.7"
     },
     {
       "name": "example",
-      "rootUri": "../design_system/example",
+      "rootUri": "../uikit/example",
       "packageUri": "lib/",
       "languageVersion": "3.7"
     },
@@ -212,7 +212,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-03-16T14:58:12.518921Z",
+  "generated": "2025-03-16T15:02:18.346904Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///Users/mykhailo.lazebnyi/fvm/versions/3.29.0",

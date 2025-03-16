@@ -1,32 +1,30 @@
-import 'package:design_system/design_system.dart';
+import 'package:uikit/uikit.dart';
 import '../../../../../design_preview/lib/src/core/tab.dart';
 import '../../../../../design_preview/lib/src/core/widget/preview_widget.dart';
 import 'package:flutter/material.dart';
 
-class DestructiveButtonTab extends StatefulWidget with WidgetTab {
-  const DestructiveButtonTab({super.key});
+class IconButtonTab extends StatefulWidget with WidgetTab {
+  const IconButtonTab({super.key});
 
   @override
-  String get title => 'Destructive';
+  String get title => 'Icon';
 
   @override
-  State<DestructiveButtonTab> createState() => _DestructiveButtonTabState();
+  State<IconButtonTab> createState() => _IconButtonTabState();
 }
 
-class _DestructiveButtonTabState extends State<DestructiveButtonTab> {
-  final labelController = TextEditingController(text: 'Destructive Button');
+class _IconButtonTabState extends State<IconButtonTab> {
   final isEnabled = ValueNotifier<bool>(true);
-  late final _formListenable = Listenable.merge([labelController, isEnabled]);
+  late final _formListenable = Listenable.merge([isEnabled]);
 
   @override
   Widget build(BuildContext context) {
     return PreviewWidget(
       listenable: _formListenable,
       builder: (context) {
-        return UiButton.destructive(
-          labelController.text,
+        return UiButton.icon(
+          Icon(Icons.add),
           onPressed: () {},
-          icon: Icon(Icons.add),
           enabled: isEnabled.value,
         );
       },
@@ -34,8 +32,6 @@ class _DestructiveButtonTabState extends State<DestructiveButtonTab> {
         return ListView(
           padding: EdgeInsets.all(context.padding.level2),
           children: [
-            UiTextInput.outlined(controller: labelController, labelText: 'Button Label'),
-            SizedBox(height: context.margin.level2),
             UiListTile.checkbox(
               title: 'Enabled',
               value: isEnabled.value,

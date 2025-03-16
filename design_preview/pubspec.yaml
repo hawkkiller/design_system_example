@@ -12,7 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  design_system: 0.0.1
+  uikit: 0.0.1
 
 dev_dependencies:
   flutter_test:

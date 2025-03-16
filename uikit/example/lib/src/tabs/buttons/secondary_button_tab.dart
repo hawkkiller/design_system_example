@@ -1,20 +1,20 @@
-import 'package:design_system/design_system.dart';
+import 'package:uikit/uikit.dart';
 import '../../../../../design_preview/lib/src/core/tab.dart';
 import '../../../../../design_preview/lib/src/core/widget/preview_widget.dart';
 import 'package:flutter/material.dart';
 
-class PrimaryButtonTab extends StatefulWidget with WidgetTab {
-  const PrimaryButtonTab({super.key});
+class SecondaryButtonTab extends StatefulWidget with WidgetTab {
+  const SecondaryButtonTab({super.key});
 
   @override
-  String get title => 'Primary';
+  String get title => 'Secondary';
 
   @override
-  State<PrimaryButtonTab> createState() => _PrimaryButtonTabState();
+  State<SecondaryButtonTab> createState() => _SecondaryButtonTabState();
 }
 
-class _PrimaryButtonTabState extends State<PrimaryButtonTab> {
-  final labelController = TextEditingController(text: 'Primary Button');
+class _SecondaryButtonTabState extends State<SecondaryButtonTab> {
+  final labelController = TextEditingController(text: 'Secondary Button');
   final isEnabled = ValueNotifier<bool>(true);
   late final _formListenable = Listenable.merge([labelController, isEnabled]);
 
@@ -23,7 +23,7 @@ class _PrimaryButtonTabState extends State<PrimaryButtonTab> {
     return PreviewWidget(
       listenable: _formListenable,
       builder: (context) {
-        return UiButton.primary(
+        return UiButton.secondary(
           labelController.text,
           onPressed: () {},
           icon: Icon(Icons.add),
