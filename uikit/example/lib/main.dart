@@ -1,11 +1,13 @@
 import 'package:design_preview/design_preview.dart';
 import 'package:design_preview_gorouter/design_preview_gorouter.dart';
+import 'package:example/src/core/widget_preview.dart';
 import 'package:example/src/tabs/buttons/destructive_button_tab.dart';
 import 'package:example/src/tabs/buttons/icon_button_tab.dart';
 import 'package:example/src/tabs/buttons/primary_button_tab.dart';
 import 'package:example/src/tabs/buttons/secondary_button_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:uikit/uikit.dart';
 
 Future<void> main(List<String> args) async {
   runApp(MyApp());
@@ -32,12 +34,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) => MaterialApp.router(
     debugShowCheckedModeBanner: false,
     routerConfig: goRouter,
-    theme: ThemeData(
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.transparent,
-        brightness: Brightness.light,
-        dynamicSchemeVariant: DynamicSchemeVariant.monochrome,
-      ),
-    ),
+    theme: WidgetPreview.buildThemeData(Defaults.tokens),
   );
 }

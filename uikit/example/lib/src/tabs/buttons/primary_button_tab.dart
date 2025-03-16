@@ -1,4 +1,5 @@
 import 'package:design_preview/design_preview.dart';
+import 'package:example/src/core/widget_preview.dart';
 import 'package:uikit/uikit.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _PrimaryButtonTabState extends State<PrimaryButtonTab> {
 
   @override
   Widget build(BuildContext context) {
-    return PreviewWidget(
+    return WidgetPreview(
       listenable: _formListenable,
       builder: (context) {
         return UiButton.primary(

@@ -1,4 +1,5 @@
 import 'package:design_preview/design_preview.dart';
+import 'package:example/src/core/widget_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:uikit/uikit.dart';
 
@@ -18,7 +19,7 @@ class _IconButtonTabState extends State<IconButtonTab> {
 
   @override
   Widget build(BuildContext context) {
-    return PreviewWidget(
+    return WidgetPreview(
       listenable: _formListenable,
       builder: (context) {
         return UiButton.icon(

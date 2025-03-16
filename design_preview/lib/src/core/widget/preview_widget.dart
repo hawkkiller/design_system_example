@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PreviewWidget extends StatelessWidget {
-  const PreviewWidget({
-    super.key,
-    required this.builder,
-    this.sidebarBuilder,
-    this.listenable,
-  });
+  const PreviewWidget({super.key, required this.builder, this.sidebarBuilder, this.listenable});
 
   final WidgetBuilder builder;
   final WidgetBuilder? sidebarBuilder;
@@ -14,18 +9,13 @@ class PreviewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget widget;
-
     if (listenable != null) {
-      widget = ListenableBuilder(
+      return ListenableBuilder(
         listenable: listenable!,
         builder: (context, _) => _PreviewDesktop(builder: builder, sidebarBuilder: sidebarBuilder),
       );
-    } else {
-      widget = _PreviewDesktop(builder: builder, sidebarBuilder: sidebarBuilder);
     }
-
-    return widget;
+    return _PreviewDesktop(builder: builder, sidebarBuilder: sidebarBuilder);
   }
 }
 
@@ -39,7 +29,7 @@ class _PreviewDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: Center(child: builder(context))),
+        Expanded(child: builder(context)),
         if (sidebarBuilder != null)
           DecoratedBox(
             decoration: BoxDecoration(
