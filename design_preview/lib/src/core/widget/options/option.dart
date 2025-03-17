@@ -29,7 +29,7 @@ abstract class OptionWidgetState<T extends OptionWidget<V>, V> extends State<T> 
     super.dispose();
   }
 
-  void onOptionValueChanged(V value);
+  void onOptionValueChanged(V value) {}
 
   void _optionControllerListener() {
     onOptionValueChanged(widget.controller.value);

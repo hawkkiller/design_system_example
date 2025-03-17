@@ -1,4 +1,6 @@
 import 'package:design_preview/design_preview.dart';
+import 'package:example/src/core/sidebar.dart';
+import 'package:example/src/core/theme_option.dart';
 import 'package:example/src/core/widget_preview.dart';
 import 'package:uikit/uikit.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,7 @@ class PrimaryButtonTab extends StatefulWidget with WidgetTab {
 }
 
 class _PrimaryButtonTabState extends State<PrimaryButtonTab> {
-  final labelController = StringOptionInputController('Primary Button');
+  final labelController = StringOptionController('Primary Button');
   final isEnabled = ValueNotifier<bool>(true);
   late final _formListenable = Listenable.merge([labelController, isEnabled]);
 
@@ -31,11 +33,12 @@ class _PrimaryButtonTabState extends State<PrimaryButtonTab> {
         );
       },
       sidebarBuilder: (context) {
-        return ListView(
-          padding: EdgeInsets.all(context.padding.level2),
+        return Sidebar(
           children: [
+            ThemeOptionInput(),
+            SizedBox(height: context.margin.level1),
             StringOptionInput(controller: labelController, label: 'Button Label'),
-            SizedBox(height: context.margin.level2),
+            SizedBox(height: context.margin.level1),
             UiListTile.checkbox(
               title: 'Enabled',
               value: isEnabled.value,

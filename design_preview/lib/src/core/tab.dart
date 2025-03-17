@@ -26,7 +26,7 @@ mixin WidgetTab on Widget implements PreviewTab {
 }
 
 class FolderTab implements PreviewTab {
-  FolderTab({required this.title, required this.tabs});
+  const FolderTab({required this.title, required this.tabs});
 
   @override
   final String title;

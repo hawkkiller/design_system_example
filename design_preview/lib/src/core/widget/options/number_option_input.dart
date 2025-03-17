@@ -2,7 +2,9 @@ import 'package:design_preview/src/core/widget/options/option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-typedef NumberOptionInputController = ValueNotifier<num>;
+class NumberOptionController extends ValueNotifier<num> {
+  NumberOptionController(super.value);
+}
 
 class NumberOptionInput extends OptionWidget<num> {
   const NumberOptionInput({super.key, required this.label, required super.controller});

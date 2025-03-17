@@ -1,7 +1,9 @@
 import 'package:design_preview/src/core/widget/options/option.dart';
 import 'package:flutter/material.dart';
 
-typedef StringOptionInputController = ValueNotifier<String>;
+class StringOptionController extends ValueNotifier<String> {
+  StringOptionController(super._value);
+}
 
 class StringOptionInput extends OptionWidget<String> {
   const StringOptionInput({super.key, required this.label, required super.controller});
@@ -46,7 +48,7 @@ class _StringOptionInputState extends OptionWidgetState<StringOptionInput, Strin
   Widget build(BuildContext context) {
     return TextField(
       controller: _textEditingController,
-      decoration: InputDecoration(labelText: widget.label,filled: true),
+      decoration: InputDecoration(labelText: widget.label, filled: true),
       onChanged: _onTextChanged,
     );
   }

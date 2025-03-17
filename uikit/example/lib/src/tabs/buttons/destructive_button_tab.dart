@@ -1,4 +1,6 @@
 import 'package:design_preview/design_preview.dart';
+import 'package:example/src/core/sidebar.dart';
+import 'package:example/src/core/theme_option.dart';
 import 'package:example/src/core/widget_preview.dart';
 import 'package:uikit/uikit.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,7 @@ class DestructiveButtonTab extends StatefulWidget with WidgetTab {
 }
 
 class _DestructiveButtonTabState extends State<DestructiveButtonTab> {
-  final labelController = StringOptionInputController('Destructive Button');
+  final labelController = StringOptionController('Destructive Button');
   final isEnabled = ValueNotifier<bool>(true);
   late final _formListenable = Listenable.merge([labelController, isEnabled]);
 
@@ -31,11 +33,12 @@ class _DestructiveButtonTabState extends State<DestructiveButtonTab> {
         );
       },
       sidebarBuilder: (context) {
-        return ListView(
-          padding: EdgeInsets.all(context.padding.level2),
+        return Sidebar(
           children: [
+            ThemeOptionInput(),
+            SizedBox(height: context.margin.level1),
             StringOptionInput(controller: labelController, label: 'Button Label'),
-            SizedBox(height: context.margin.level2),
+            SizedBox(height: context.margin.level1),
             UiListTile.checkbox(
               title: 'Enabled',
               value: isEnabled.value,
