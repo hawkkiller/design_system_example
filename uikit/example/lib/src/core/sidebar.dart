@@ -1,8 +1,10 @@
+import 'package:example/src/core/theme_option.dart';
 import 'package:flutter/material.dart';
 
 class Sidebar extends StatelessWidget {
-  const Sidebar({super.key, required this.children});
+  const Sidebar({super.key, required this.children, this.addThemeOption = true});
 
+  final bool addThemeOption;
   final List<Widget> children;
 
   @override
@@ -10,7 +12,8 @@ class Sidebar extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.all(8),
       children: [
-        for (final child in children) ...[child, const SizedBox(height: 8)],
+        if (addThemeOption) ...[ThemeOptionInput(), Divider()],
+        for (final child in children) ...[child, const SizedBox(height: 16)],
       ],
     );
   }

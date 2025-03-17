@@ -1,6 +1,5 @@
 import 'package:design_preview/design_preview.dart';
 import 'package:example/src/core/sidebar.dart';
-import 'package:example/src/core/theme_option.dart';
 import 'package:example/src/core/widget_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:uikit/uikit.dart';
@@ -34,12 +33,7 @@ class _StandardTextfieldTabState extends State<StandardTextfieldTab> {
         return UiTextInput.outlined(labelText: _labelOption.value);
       },
       sidebarBuilder: (context) {
-        return Sidebar(
-          children: [
-            ThemeOptionInput(),
-            StringOptionInput(controller: _labelOption, label: 'Label'),
-          ],
-        );
+        return Sidebar(children: [StringOptionInput(controller: _labelOption, label: 'Label')]);
       },
     );
   }

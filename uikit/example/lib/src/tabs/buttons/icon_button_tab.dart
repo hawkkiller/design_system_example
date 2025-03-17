@@ -1,6 +1,5 @@
 import 'package:design_preview/design_preview.dart';
 import 'package:example/src/core/sidebar.dart';
-import 'package:example/src/core/theme_option.dart';
 import 'package:example/src/core/widget_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:uikit/uikit.dart';
@@ -29,8 +28,6 @@ class _IconButtonTabState extends State<IconButtonTab> {
       sidebarBuilder: (context) {
         return Sidebar(
           children: [
-            ThemeOptionInput(),
-            SizedBox(height: context.margin.level1),
             UiListTile.checkbox(
               title: 'Enabled',
               value: isEnabled.value,
