@@ -17,7 +17,8 @@ class ThemeOptionInput extends StatelessWidget {
       dropdownMenuEntries: _entries,
       initialSelection: theme ?? _entries.first.value,
       onSelected: (value) {
-        ThemeOptionInherited.setTheme(context, value as ThemeData);
+        if (value == null) return;
+        ThemeOptionInherited.setTheme(context, value);
       },
     );
   }

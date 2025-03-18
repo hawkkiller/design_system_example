@@ -1,11 +1,6 @@
-import '../../uikit.dart';
-import 'color_tokens.dart';
-import 'gutter_tokens.dart';
-import 'margin_tokens.dart';
-import 'padding_tokens.dart';
-import 'radius_tokens.dart';
-import 'typography_tokens.dart';
 import 'package:flutter/material.dart';
+import 'package:uikit/src/tokens/radius_tokens.dart';
+import 'package:uikit/uikit.dart';
 
 class Defaults {
   static final margin = MarginTokens(

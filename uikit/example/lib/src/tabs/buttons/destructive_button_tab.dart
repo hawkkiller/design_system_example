@@ -15,7 +15,7 @@ class DestructiveButtonTab extends StatefulWidget with WidgetTab {
 }
 
 class _DestructiveButtonTabState extends State<DestructiveButtonTab> {
-  final labelController = TextEditingController(text: 'Destructive Button');
+  final labelController = TextEditingController(text: 'Delete');
   final isEnabled = ValueNotifier<bool>(true);
   late final _formListenable = Listenable.merge([labelController, isEnabled]);
 

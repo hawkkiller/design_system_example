@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'radius_tokens.dart';
-import 'color_tokens.dart';
-import 'defaults.dart';
-import 'gutter_tokens.dart';
-import 'margin_tokens.dart';
-import 'padding_tokens.dart';
-import 'typography_tokens.dart';
+import 'package:uikit/uikit.dart';
 
 class Tokens extends ThemeExtension<Tokens> {
   const Tokens({

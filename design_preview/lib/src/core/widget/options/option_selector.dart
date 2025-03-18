@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+class OptionSelectorItem<T> {
+  OptionSelectorItem({required this.value, String? label})
+    : label = label ?? value.toString();
+
+  final T value;
+  final String label;
+}
+
 class OptionSelector<T> extends StatelessWidget {
   const OptionSelector({
     super.key,
@@ -10,10 +18,10 @@ class OptionSelector<T> extends StatelessWidget {
 
   final String label;
   final ValueNotifier<T> controller;
-  final List<T> values;
+  final List<OptionSelectorItem<T>> values;
 
-  DropdownMenuItem<T> _buildItem(T value) {
-    return DropdownMenuItem<T>(value: value, child: Text(value.toString()));
+  DropdownMenuEntry<T> _buildItem(OptionSelectorItem<T> item) {
+    return DropdownMenuEntry(value: item.value, label: item.label);
   }
 
   @override
@@ -21,14 +29,13 @@ class OptionSelector<T> extends StatelessWidget {
     return ListenableBuilder(
       listenable: controller,
       builder: (context, _) {
-        return DropdownButton<T>(
-          value: controller.value,
-          items: values.map(_buildItem).toList(growable: false),
-          hint: Text(label),
-          onChanged: (value) {
-            if (value != null) {
-              controller.value = value;
-            }
+        return DropdownMenu<T>(
+          initialSelection: controller.value,
+          label: Text(label),
+          dropdownMenuEntries: values.map(_buildItem).toList(),
+          onSelected: (value) {
+            if (value == null) return;
+            controller.value = value;
           },
         );
       },
