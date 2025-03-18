@@ -1,9 +1,8 @@
 export 'src/core/router/route_handler.dart';
 export 'src/core/tab.dart';
 export 'src/core/widget/not_selected_tab_screen.dart';
-export 'src/core/widget/options/option.dart';
-export 'src/core/widget/options/option_input.dart';
-export 'src/core/widget/options/string_option_input.dart';
+export 'src/core/widget/options/option_selector.dart';
+export 'src/core/widget/options/option_textfield.dart';
 export 'src/core/widget/preview_widget.dart';
 export 'src/core/widget/tabs_root.dart';
 export 'src/core/widget/tabs_tree.dart';

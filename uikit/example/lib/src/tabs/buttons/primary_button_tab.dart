@@ -15,7 +15,7 @@ class PrimaryButtonTab extends StatefulWidget with WidgetTab {
 }
 
 class _PrimaryButtonTabState extends State<PrimaryButtonTab> {
-  final labelController = StringOptionController('Primary Button');
+  final labelController = TextEditingController(text: 'Primary Button');
   final isEnabled = ValueNotifier<bool>(true);
   late final _formListenable = Listenable.merge([labelController, isEnabled]);
 
@@ -25,7 +25,7 @@ class _PrimaryButtonTabState extends State<PrimaryButtonTab> {
       listenable: _formListenable,
       builder: (context) {
         return UiButton.primary(
-          labelController.value,
+          labelController.text,
           onPressed: () {},
           icon: Icon(Icons.add),
           enabled: isEnabled.value,
@@ -34,7 +34,7 @@ class _PrimaryButtonTabState extends State<PrimaryButtonTab> {
       sidebarBuilder: (context) {
         return Sidebar(
           children: [
-            StringOptionInput(controller: labelController, label: 'Button Label'),
+            OptionTextField(controller: labelController, label: 'Button Label'),
             UiListTile.checkbox(
               title: 'Enabled',
               value: isEnabled.value,

@@ -15,7 +15,7 @@ class DestructiveButtonTab extends StatefulWidget with WidgetTab {
 }
 
 class _DestructiveButtonTabState extends State<DestructiveButtonTab> {
-  final labelController = StringOptionController('Destructive Button');
+  final labelController = TextEditingController(text: 'Destructive Button');
   final isEnabled = ValueNotifier<bool>(true);
   late final _formListenable = Listenable.merge([labelController, isEnabled]);
 
@@ -25,7 +25,7 @@ class _DestructiveButtonTabState extends State<DestructiveButtonTab> {
       listenable: _formListenable,
       builder: (context) {
         return UiButton.destructive(
-          labelController.value,
+          labelController.text,
           onPressed: () {},
           icon: Icon(Icons.add),
           enabled: isEnabled.value,
@@ -34,7 +34,7 @@ class _DestructiveButtonTabState extends State<DestructiveButtonTab> {
       sidebarBuilder: (context) {
         return Sidebar(
           children: [
-            StringOptionInput(controller: labelController, label: 'Button Label'),
+            OptionTextField(controller: labelController, label: 'Button Label'),
             UiListTile.checkbox(
               title: 'Enabled',
               value: isEnabled.value,

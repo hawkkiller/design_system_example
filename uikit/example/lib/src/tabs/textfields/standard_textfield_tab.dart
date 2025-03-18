@@ -15,7 +15,8 @@ class StandardTextfieldTab extends StatefulWidget with WidgetTab {
 }
 
 class _StandardTextfieldTabState extends State<StandardTextfieldTab> {
-  late final _labelOption = StringOptionController('Label');
+  late final _labelOption = TextEditingController(text: 'Label');
+  late final _valueController = TextEditingController(text: 'Hello!');
   late final _listenable = Listenable.merge([_labelOption]);
 
   @override
@@ -30,10 +31,15 @@ class _StandardTextfieldTabState extends State<StandardTextfieldTab> {
       constraints: BoxConstraints.tightFor(width: 400),
       listenable: _listenable,
       builder: (context) {
-        return UiTextInput.outlined(labelText: _labelOption.value);
+        return UiTextInput.outlined(labelText: _labelOption.text, controller: _valueController);
       },
       sidebarBuilder: (context) {
-        return Sidebar(children: [StringOptionInput(controller: _labelOption, label: 'Label')]);
+        return Sidebar(
+          children: [
+            OptionTextField(controller: _labelOption, label: 'Label'),
+            OptionTextField(controller: _valueController, label: 'Value'),
+          ],
+        );
       },
     );
   }
