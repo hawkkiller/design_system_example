@@ -136,7 +136,7 @@ class _UiButtonPrimary extends UiButton {
     final colors = context.colors;
 
     return FilledButton.icon(
-      label: _ButtonContent(text: label),
+      label: Text(label),
       icon: icon,
       onPressed: effectiveOnPressed,
       style: UiButtonStyle(
@@ -161,7 +161,7 @@ class _UiButtonSecondary extends UiButton {
     final colors = context.colors;
 
     return FilledButton.icon(
-      label: _ButtonContent(text: label),
+      label: Text(label),
       icon: icon,
       onPressed: effectiveOnPressed,
       style: UiButtonStyle(
@@ -186,7 +186,7 @@ class _UiButtonDestructive extends UiButton {
     final colors = context.colors;
 
     return FilledButton.icon(
-      label: _ButtonContent(text: label),
+      label: Text(label),
       icon: icon,
       onPressed: effectiveOnPressed,
       style: UiButtonStyle(
@@ -226,21 +226,6 @@ class _UiButtonIcon extends UiButton {
           side: BorderSide(color: colors.primary.withValues(alpha: .38)),
         ),
       ),
-    );
-  }
-}
-
-class _ButtonContent extends StatelessWidget {
-  const _ButtonContent({this.text});
-
-  final String? text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      spacing: 8,
-      children: [if (text != null) Text(text!)],
     );
   }
 }
