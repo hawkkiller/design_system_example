@@ -12,7 +12,7 @@ class Sidebar extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.all(8),
       children: [
-        if (addThemeOption) ...[ThemeOptionInput(), Divider()],
+        if (addThemeOption) ...[ThemeOptionInput(), Divider(height: 24)],
         for (final child in children) ...[child, const SizedBox(height: 16)],
       ],
     );
