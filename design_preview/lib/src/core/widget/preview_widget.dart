@@ -12,15 +12,29 @@ class PreviewWidget extends StatelessWidget {
     if (listenable != null) {
       return ListenableBuilder(
         listenable: listenable!,
-        builder: (context, _) => _PreviewDesktop(builder: builder, sidebarBuilder: sidebarBuilder),
+        builder: (context, _) {
+          return _PreviewResponsive(builder: builder, sidebarBuilder: sidebarBuilder);
+        },
       );
     }
-    return _PreviewDesktop(builder: builder, sidebarBuilder: sidebarBuilder);
+    return _PreviewResponsive(builder: builder, sidebarBuilder: sidebarBuilder);
   }
 }
 
-class _PreviewDesktop extends StatelessWidget {
-  const _PreviewDesktop({required this.builder, this.sidebarBuilder});
+class _PreviewResponsive extends StatelessWidget {
+  const _PreviewResponsive({required this.builder, this.sidebarBuilder});
+
+  final WidgetBuilder builder;
+  final WidgetBuilder? sidebarBuilder;
+
+  @override
+  Widget build(BuildContext context) {
+    return _PreviewLarge(builder: builder, sidebarBuilder: sidebarBuilder);
+  }
+}
+
+class _PreviewLarge extends StatelessWidget {
+  const _PreviewLarge({required this.builder, this.sidebarBuilder});
 
   final WidgetBuilder builder;
   final WidgetBuilder? sidebarBuilder;

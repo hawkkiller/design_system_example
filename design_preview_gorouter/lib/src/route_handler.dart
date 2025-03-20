@@ -22,7 +22,7 @@ class RouteHandlerGoRouter implements RouteHandler {
   String encodeTitleToPath(String title) {
     return title.toLowerCase().replaceAll(' ', '-');
   }
-  
+
   @override
   void navigateTo(BuildContext context, String path) {
     context.go('/$path');

@@ -32,15 +32,36 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late final goRouter = GoRouter(routes: [buildRootRoute(MyApp.tabs)], debugLogDiagnostics: true);
+  late final _router = buildGoRouter();
 
   @override
   Widget build(BuildContext context) => MaterialApp.router(
     debugShowCheckedModeBanner: false,
-    routerConfig: goRouter,
+    routerConfig: _router,
     theme: buildThemeData(Defaults.darkTokens, Brightness.dark),
     builder: (context, child) {
       return ThemeOptionInherited(child: child!);
     },
+  );
+}
+
+GoRouter buildGoRouter() {
+  final handler = RouteHandlerGoRouter();
+
+  return GoRouter(
+    routes: [
+      ShellRoute(
+        routes: [
+          GoRoute(
+            path: '/',
+            builder: (context, state) => NotSelectedTabScreen(),
+            routes: buildRoutesForTabs(handler, MyApp.tabs),
+          ),
+        ],
+        builder: (context, state, child) {
+          return TabsRoot(routeHandler: handler, tabs: MyApp.tabs, navigator: child);
+        },
+      ),
+    ],
   );
 }
