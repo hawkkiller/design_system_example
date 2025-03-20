@@ -18,11 +18,13 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   static const tabs = [
-    FolderTab(
-      title: 'Buttons',
-      tabs: [PrimaryButtonTab(), SecondaryButtonTab(), DestructiveButtonTab(), IconButtonTab()],
-    ),
-    FolderTab(title: 'Textfields', tabs: [StandardTextfieldTab()]),
+    FolderTab('Buttons', [
+      PrimaryButtonTab(),
+      SecondaryButtonTab(),
+      DestructiveButtonTab(),
+      IconButtonTab(),
+    ]),
+    FolderTab('Textfields', [StandardTextfieldTab()]),
   ];
 
   @override
