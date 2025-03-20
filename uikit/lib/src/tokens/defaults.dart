@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uikit/src/tokens/radius_tokens.dart';
 import 'package:uikit/uikit.dart';
 
 class Defaults {
