@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 
 class TabsTree extends StatelessWidget {
   const TabsTree({
-    super.key,
     required this.tabs,
     required this.routeHandler,
     this.pathPrefix = '',
     this.indentLevel = 0,
+    super.key,
   });
 
   final RouteHandler routeHandler;

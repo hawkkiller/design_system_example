@@ -38,7 +38,7 @@ List<RouteBase> _buildRoutesForTabs(RouteHandler handler, List<PreviewTab> tabs)
           ),
         );
       }
-    } else if (tab.shouldRenderContent) {
+    } else {
       // Create route for content tabs
       routes.add(
         GoRoute(
