@@ -155,4 +155,7 @@ class Defaults {
     typography: darkTypography,
     colors: darkColors,
   );
+
+  static final lightTheme = buildThemeData(tokens, Brightness.light);
+  static final darkTheme = buildThemeData(darkTokens, Brightness.dark);
 }

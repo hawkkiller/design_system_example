@@ -5,60 +5,47 @@ class UiButtonStyle extends ButtonStyle {
   const UiButtonStyle({
     required this.tokens,
     Color? backgroundColor,
-    Color? disabledBackgroundColor,
     Color? foregroundColor,
-    Color? disabledForegroundColor,
     Color? overlayColor,
     OutlinedBorder? shape,
     OutlinedBorder? disabledShape,
   }) : _backgroundColor = backgroundColor,
-       _disabledBackgroundColor = disabledBackgroundColor,
        _foregroundColor = foregroundColor,
-       _disabledForegroundColor = disabledForegroundColor,
        _overlayColor = overlayColor,
        _shape = shape,
        _disabledShape = disabledShape;
 
   final Tokens tokens;
   final Color? _backgroundColor;
-  final Color? _disabledBackgroundColor;
   final Color? _foregroundColor;
-  final Color? _disabledForegroundColor;
   final Color? _overlayColor;
   final OutlinedBorder? _shape;
   final OutlinedBorder? _disabledShape;
 
-  /// Returns [enabled] if [disabled] is `null`,
-  /// otherwise returns a [WidgetStateProperty] with [WidgetState.disabled]
-  /// set to [disabled] and [WidgetState.any] set to [enabled].
-  static WidgetStateProperty<T?>? defaultValue<T>(T? enabled, T? disabled) {
+  static WidgetStateProperty<T?>? enabledOr<T>(T? enabled, T? disabled) {
     if (disabled == null) {
-      return WidgetStatePropertyAll<T?>(enabled);
+      return WidgetStatePropertyAll(enabled);
     }
 
-    return WidgetStateProperty<T?>.fromMap(<WidgetStatesConstraint, T?>{
+    return WidgetStateProperty<T?>.fromMap({
       WidgetState.disabled: disabled,
       WidgetState.any: enabled,
     });
   }
 
   @override
-  WidgetStateProperty<Color?>? get backgroundColor => defaultValue(
-    _backgroundColor,
-    _disabledBackgroundColor ?? _backgroundColor?.withValues(alpha: 0.5),
-  );
+  WidgetStateProperty<Color?>? get backgroundColor =>
+      enabledOr(_backgroundColor, _backgroundColor?.withValues(alpha: 0.5));
 
   @override
-  WidgetStateProperty<Color?>? get foregroundColor => defaultValue(
-    _foregroundColor,
-    _disabledForegroundColor ?? _foregroundColor?.withValues(alpha: 0.5),
-  );
+  WidgetStateProperty<Color?>? get foregroundColor =>
+      enabledOr(_foregroundColor, _foregroundColor?.withValues(alpha: 0.5));
 
   @override
   WidgetStateProperty<Color?>? get iconColor => foregroundColor;
 
   @override
-  WidgetStateProperty<OutlinedBorder?>? get shape => defaultValue(_shape, _disabledShape);
+  WidgetStateProperty<OutlinedBorder?>? get shape => enabledOr(_shape, _disabledShape);
 
   @override
   WidgetStateProperty<Color?>? get overlayColor => switch ((_foregroundColor, _overlayColor)) {
@@ -116,13 +103,6 @@ sealed class UiButton extends StatelessWidget {
 
   const factory UiButton.icon(Widget icon, {Key? key, VoidCallback? onPressed, bool enabled}) =
       _UiButtonIcon;
-
-  Widget buildButton(BuildContext context);
-
-  @override
-  Widget build(BuildContext context) {
-    return buildButton(context);
-  }
 }
 
 class _UiButtonPrimary extends UiButton {
@@ -132,7 +112,7 @@ class _UiButtonPrimary extends UiButton {
   final String label;
 
   @override
-  Widget buildButton(BuildContext context) {
+  Widget build(BuildContext context) {
     final colors = context.colors;
 
     return FilledButton.icon(
@@ -157,7 +137,7 @@ class _UiButtonSecondary extends UiButton {
   final Widget? icon;
 
   @override
-  Widget buildButton(BuildContext context) {
+  Widget build(BuildContext context) {
     final colors = context.colors;
 
     return FilledButton.icon(
@@ -182,7 +162,7 @@ class _UiButtonDestructive extends UiButton {
   final Widget? icon;
 
   @override
-  Widget buildButton(BuildContext context) {
+  Widget build(BuildContext context) {
     final colors = context.colors;
 
     return FilledButton.icon(
@@ -206,7 +186,7 @@ class _UiButtonIcon extends UiButton {
   final Widget icon;
 
   @override
-  Widget buildButton(BuildContext context) {
+  Widget build(BuildContext context) {
     final colors = context.colors;
 
     return IconButton(

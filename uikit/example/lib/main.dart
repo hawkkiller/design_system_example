@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) => MaterialApp.router(
     debugShowCheckedModeBanner: false,
     routerConfig: _router,
-    theme: buildThemeData(Defaults.darkTokens, Brightness.dark),
+    theme: Defaults.lightTheme,
     builder: (context, child) {
       return ThemeOptionInherited(child: child!);
     },

@@ -5,8 +5,8 @@ class ThemeOptionInput extends StatelessWidget {
   const ThemeOptionInput({super.key});
 
   static final _entries = <DropdownMenuEntry<ThemeData>>[
-    DropdownMenuEntry<ThemeData>(value: buildThemeData(Defaults.tokens, Brightness.light), label: 'Light'),
-    DropdownMenuEntry<ThemeData>(value: buildThemeData(Defaults.darkTokens, Brightness.dark), label: 'Dark'),
+    DropdownMenuEntry<ThemeData>(value: Defaults.lightTheme, label: 'Light'),
+    DropdownMenuEntry<ThemeData>(value: Defaults.darkTheme, label: 'Dark'),
   ];
 
   @override
