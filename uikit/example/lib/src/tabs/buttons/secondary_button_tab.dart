@@ -35,10 +35,10 @@ class _SecondaryButtonTabState extends State<SecondaryButtonTab> {
         return Sidebar(
           children: [
             OptionTextField(controller: labelController, label: 'Button Label'),
-            UiListTile.checkbox(
-              title: 'Enabled',
+            CheckboxListTile(
+              title: Text('Enabled'),
               value: isEnabled.value,
-              onChanged: (value) => isEnabled.value = value,
+              onChanged: (value) => isEnabled.value = value!,
             ),
           ],
         );

@@ -36,10 +36,10 @@ class _IconButtonTabState extends State<IconButtonTab> {
       sidebarBuilder: (context) {
         return Sidebar(
           children: [
-            UiListTile.checkbox(
-              title: 'Enabled',
+            CheckboxListTile(
+              title: Text('Enabled'),
               value: isEnabled.value,
-              onChanged: (value) => isEnabled.value = value,
+              onChanged: (value) => isEnabled.value = value!,
             ),
             OptionSelector(
               label: 'Icon',
